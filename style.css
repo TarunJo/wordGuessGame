@@ -11,13 +11,13 @@ body {
     /* margin-right: auto; */
     border: 1px solid snow;
     border-radius: 5%;
-    text-align: center;
+    /* text-align: center; */
     padding: 4% 2%;
 }
 
 #letters{
-    /* display: flex;
-    flex-direction: row; */
+    display: flex;
+    flex-direction: row;
     width: 100%;
     justify-content: center;
 }
