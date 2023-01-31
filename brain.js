@@ -202,12 +202,11 @@ let wordList = [
 ];
 
 var chances = 8;
-var hidden, phrase;
+var hidden="", phrase="";
 
-generate();
 function generate() {
     const list = document.getElementById("letters");
-    document.getElementsByClassName("letter")[hidden.length-1].value="";
+    document.getElementsByClassName("letter")[hidden.length-1<0?0:hidden.length-1].value="";
     // console.log(list.children.length);
     chances=8;
     while(list.children.length>1)
@@ -291,3 +290,5 @@ function start() {
         return;
     }
 }
+
+generate();
