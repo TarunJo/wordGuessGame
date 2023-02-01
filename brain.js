@@ -246,7 +246,7 @@ function start() {
     
     var arr = document.getElementsByClassName("letter");
     var gussed = "";
-    if(last=="");
+    if(last=="")
     for(let i=0;i<arr.length;i++) last+='-';
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].value != "") gussed += arr[i].value;
@@ -260,7 +260,7 @@ function start() {
     for(let i = 0; i<hidden.length;i++)
     {
         // console.log(gussed[i]+" "+hidden[i]);
-        if(gussed[i]!=last[i] && gussed[i]!=(hidden[i]))
+        if(gussed[i]!=last[i] && gussed[i]!=(hidden[i]) && gussed[i]!='-')
         {
             flag=true;
             wrongs+=(" "+(gussed[i].toUpperCase()));
