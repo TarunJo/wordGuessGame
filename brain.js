@@ -202,7 +202,7 @@ let wordList = [
 ];
 
 var chances = 8;
-var hidden="", phrase="";
+var hidden="", phrase="",last="";
 
 function generate() {
     const list = document.getElementById("letters");
@@ -215,7 +215,7 @@ function generate() {
     var num=Math.floor(Math.random() * wordList.length);
     hidden = wordList[num].word;
     phrase = wordList[num].hint;
-    document.getElementById("hint").innerText = "hint : " + phrase;
+    document.getElementById("hint").innerText = "Hint : " + phrase;
     document.getElementById("guess").innerText = "Remaining guesses: " + chances;
     document.getElementById("wrong").innerText = "Wrong letters: ";
     for(let i=1;i<hidden.length;i++)
@@ -246,6 +246,8 @@ function start() {
     
     var arr = document.getElementsByClassName("letter");
     var gussed = "";
+    if(last=="");
+    for(let i=0;i<arr.length;i++) last+='-';
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].value != "") gussed += arr[i].value;
         else gussed+='-';
@@ -258,13 +260,14 @@ function start() {
     for(let i = 0; i<hidden.length;i++)
     {
         // console.log(gussed[i]+" "+hidden[i]);
-        if(gussed[i]!='-' && gussed[i]!=(hidden[i]))
+        if(gussed[i]!=last[i] && gussed[i]!=(hidden[i]))
         {
             flag=true;
             wrongs+=(" "+(gussed[i].toUpperCase()));
         }
     }
     
+    last=gussed;
     if(flag)
     {
         chances-=(wrongs.length/2);
